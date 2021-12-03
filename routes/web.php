@@ -35,3 +35,13 @@ Route::get('/insert', function () {
     //attaching a tag to a video
     $video->tags()->save($tag2);
 });
+
+//Adding route for read operation
+Route::get('/read',function(){
+    //finding post
+    $post = Post::findOrFail(3);
+    //iterating through post to get the relevant tag
+    foreach($post->tags as $tag){
+        echo $tag;
+    }
+});

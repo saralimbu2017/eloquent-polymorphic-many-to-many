@@ -56,3 +56,11 @@ Route::get('/update',function(){
         return $tag->whereName('PHP')->update(['name'=>'Updated PHP']);
     }
 });
+
+//Adding route for delete operation
+Route::get('/delete',function(){
+    $post = Post::find(3);
+    foreach($post->tags as $tag){
+        $tag->whereId(1)->delete();
+    }
+});

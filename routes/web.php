@@ -45,3 +45,14 @@ Route::get('/read',function(){
         echo $tag;
     }
 });
+
+
+//Adding route for update operation
+Route::get('/update',function(){
+    //finding post
+    $post = Post::findOrFail(3);
+    //iterating through post to get the relevant tag
+    foreach($post->tags as $tag){
+        return $tag->whereName('PHP')->update(['name'=>'Updated PHP']);
+    }
+});
